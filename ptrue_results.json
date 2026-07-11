@@ -1,0 +1,284 @@
+{
+  "protocol": {
+    "ptrue_prompt": "{question}\n\nIs the answer \"{answer}\" correct? Answer with Yes or No.\n\nAnswer:",
+    "ptrue_tokens": "' Yes' vs ' No' (softmax normalized)",
+    "generation": "greedy, max_new_tokens=20, do_sample=False, pad_token_id=eos_token_id",
+    "scoring": "token_F1>=0.5 against any gold alias OR containment; articles/punct normalized",
+    "loco_domains_included": [
+      "history",
+      "geography",
+      "entertainment",
+      "sports",
+      "literature"
+    ],
+    "loco_domains_excluded": [
+      "science (n=30, low power; reported separately)",
+      "other (heterogeneous)"
+    ],
+    "bootstrap_n": 1000,
+    "bootstrap_seed": 42,
+    "bonferroni": "alpha=0.05/4=0.0125 -> CI=98.75% (4 TriviaQA pairs; SciQ is replication, not included)"
+  },
+  "triviaqa": {
+    "Llama3-8B-base": {
+      "accuracy": 0.737,
+      "ece_full": 0.1554,
+      "loco_by_domain": {
+        "history": 0.7884,
+        "geography": 0.803,
+        "entertainment": 0.7956,
+        "sports": 0.7601,
+        "literature": 0.7886,
+        "macro5": 0.7871
+      }
+    },
+    "Llama3-8B-instruct": {
+      "accuracy": 0.7125,
+      "ece_full": 0.1024,
+      "loco_by_domain": {
+        "history": 0.8198,
+        "geography": 0.8302,
+        "entertainment": 0.8405,
+        "sports": 0.7897,
+        "literature": 0.8517,
+        "macro5": 0.8264
+      }
+    },
+    "Gemma2-2B-base": {
+      "accuracy": 0.573,
+      "ece_full": 0.0912,
+      "loco_by_domain": {
+        "history": 0.5355,
+        "geography": 0.5268,
+        "entertainment": 0.463,
+        "sports": 0.5971,
+        "literature": 0.5644,
+        "macro5": 0.5374
+      }
+    },
+    "Gemma2-2B-instruct": {
+      "accuracy": 0.551,
+      "ece_full": 0.2222,
+      "loco_by_domain": {
+        "history": 0.7841,
+        "geography": 0.8241,
+        "entertainment": 0.7282,
+        "sports": 0.7049,
+        "literature": 0.8156,
+        "macro5": 0.7714
+      }
+    },
+    "Gemma2-9B-base": {
+      "accuracy": 0.758,
+      "ece_full": 0.1919,
+      "loco_by_domain": {
+        "history": 0.7549,
+        "geography": 0.8029,
+        "entertainment": 0.7398,
+        "sports": 0.6293,
+        "literature": 0.8399,
+        "macro5": 0.7534
+      }
+    },
+    "Gemma2-9B-instruct": {
+      "accuracy": 0.7305,
+      "ece_full": 0.2264,
+      "loco_by_domain": {
+        "history": 0.864,
+        "geography": 0.8073,
+        "entertainment": 0.8333,
+        "sports": 0.7835,
+        "literature": 0.848,
+        "macro5": 0.8272
+      }
+    },
+    "Qwen25-7B-base": {
+      "accuracy": 0.6185,
+      "ece_full": 0.2004,
+      "loco_by_domain": {
+        "history": 0.8481,
+        "geography": 0.7858,
+        "entertainment": 0.8091,
+        "sports": 0.8226,
+        "literature": 0.867,
+        "macro5": 0.8265
+      }
+    },
+    "Qwen25-7B-instruct": {
+      "accuracy": 0.6025,
+      "ece_full": 0.2438,
+      "loco_by_domain": {
+        "history": 0.7683,
+        "geography": 0.7829,
+        "entertainment": 0.7873,
+        "sports": 0.817,
+        "literature": 0.8791,
+        "macro5": 0.8069
+      }
+    }
+  },
+  "triviaqa_chat": {
+    "Llama3-8B-instruct-chat": {
+      "accuracy": 0.691,
+      "loco_by_domain": {
+        "history": 0.7183,
+        "geography": 0.8146,
+        "entertainment": 0.7649,
+        "sports": 0.6855,
+        "literature": 0.7613,
+        "macro5": 0.7489
+      }
+    },
+    "Gemma2-2B-instruct-chat": {
+      "accuracy": 0.5475,
+      "loco_by_domain": {
+        "history": 0.7312,
+        "geography": 0.8328,
+        "entertainment": 0.7422,
+        "sports": 0.7073,
+        "literature": 0.7826,
+        "macro5": 0.7592
+      }
+    },
+    "Gemma2-9B-instruct-chat": {
+      "accuracy": 0.736,
+      "loco_by_domain": {
+        "history": 0.8122,
+        "geography": 0.8448,
+        "entertainment": 0.7799,
+        "sports": 0.6847,
+        "literature": 0.8431,
+        "macro5": 0.7929
+      }
+    },
+    "Qwen25-7B-instruct-chat": {
+      "accuracy": 0.5675,
+      "loco_by_domain": {
+        "history": 0.7511,
+        "geography": 0.7667,
+        "entertainment": 0.7661,
+        "sports": 0.6654,
+        "literature": 0.7876,
+        "macro5": 0.7474
+      }
+    }
+  },
+  "olmo_pythia": {
+    "OLMo-2-7B-base": {
+      "accuracy": 0.708,
+      "ece_full": 0.2894,
+      "loco_by_domain": {
+        "history": 0.7952,
+        "geography": 0.7756,
+        "entertainment": 0.8036,
+        "sports": 0.6879,
+        "literature": 0.8003,
+        "macro5": 0.7725
+      }
+    },
+    "Pythia-6.9B-base": {
+      "accuracy": 0.374,
+      "ece_full": 0.1625,
+      "loco_by_domain": {
+        "history": 0.3936,
+        "geography": 0.5045,
+        "entertainment": 0.5504,
+        "sports": 0.595,
+        "literature": 0.4127,
+        "macro5": 0.4912
+      }
+    }
+  },
+  "sciq": {
+    "Llama3-8B-base": {
+      "accuracy": 0.6465,
+      "ece_full": 0.0597,
+      "auc_overall": 0.671
+    },
+    "Llama3-8B-instruct": {
+      "accuracy": 0.61,
+      "ece_full": 0.2013,
+      "auc_overall": 0.735
+    },
+    "Gemma2-2B-base": {
+      "accuracy": 0.5555,
+      "ece_full": 0.0486,
+      "auc_overall": 0.5491
+    },
+    "Gemma2-2B-instruct": {
+      "accuracy": 0.627,
+      "ece_full": 0.2995,
+      "auc_overall": 0.6542
+    },
+    "Gemma2-9B-base": {
+      "accuracy": 0.6865,
+      "ece_full": 0.0991,
+      "auc_overall": 0.6831
+    },
+    "Gemma2-9B-instruct": {
+      "accuracy": 0.711,
+      "ece_full": 0.2775,
+      "auc_overall": 0.6478
+    },
+    "Qwen25-7B-base": {
+      "accuracy": 0.6685,
+      "ece_full": 0.2212,
+      "auc_overall": 0.7146
+    },
+    "Qwen25-7B-instruct": {
+      "accuracy": 0.674,
+      "ece_full": 0.272,
+      "auc_overall": 0.7275
+    }
+  },
+  "item_matched": {
+    "Llama3-8B": {
+      "n_matched": 798,
+      "auc_base": 0.7902,
+      "auc_instruct": 0.8562,
+      "delta": 0.066,
+      "ci_98_75_lo": -0.0083,
+      "ci_98_75_hi": 0.1367,
+      "significant": "NO",
+      "ece_matched_base": 0.1604,
+      "ece_matched_instruct": 0.2542,
+      "delta_ece_matched": 0.0938
+    },
+    "Gemma2-2B": {
+      "n_matched": 1464,
+      "auc_base": 0.5512,
+      "auc_instruct": 0.7849,
+      "delta": 0.2337,
+      "ci_98_75_lo": 0.1596,
+      "ci_98_75_hi": 0.3044,
+      "significant": "YES",
+      "ece_matched_base": 0.0667,
+      "ece_matched_instruct": 0.2644,
+      "delta_ece_matched": 0.1977
+    },
+    "Gemma2-9B": {
+      "n_matched": 792,
+      "auc_base": 0.7624,
+      "auc_instruct": 0.8778,
+      "delta": 0.1154,
+      "ci_98_75_lo": 0.046,
+      "ci_98_75_hi": 0.182,
+      "significant": "YES",
+      "ece_matched_base": 0.1016,
+      "ece_matched_instruct": 0.424,
+      "delta_ece_matched": 0.3224
+    },
+    "Qwen25-7B": {
+      "n_matched": 1304,
+      "auc_base": 0.8489,
+      "auc_instruct": 0.8193,
+      "delta": -0.0296,
+      "ci_98_75_lo": -0.068,
+      "ci_98_75_hi": 0.0131,
+      "significant": "NO",
+      "ece_matched_base": 0.2919,
+      "ece_matched_instruct": 0.2767,
+      "delta_ece_matched": -0.0152
+    }
+  }
+}
