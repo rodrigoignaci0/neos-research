@@ -275,7 +275,7 @@ These results suggest that what is often attributed to alignment as self-knowled
 
 ## Reproducibility Statement
 
-Code, literal prompt templates, run configurations, and the consolidated results file (`results.json`) from which every table and every in-text numeric value in this paper is generated will be released at **[URL DEL REPOSITORIO — COMPLETAR]**. All tables in this document are generated programmatically from `results.json`; no numeric value is hand-edited.
+Code, literal prompt templates, run configurations, and the consolidated results file (`results.json`) from which every table and every in-text numeric value in this paper is generated will be released at **https://github.com/rodrigoignaci0/neos-research**. All tables in this document are generated programmatically from `results.json`; no numeric value is hand-edited.
 
 ---
 
